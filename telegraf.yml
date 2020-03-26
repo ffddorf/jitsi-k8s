@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegraf
+  namespace: jitsi
+spec:
+  selector:
+    matchLabels:
+      app: telegraf
+  template:
+    metadata:
+      labels:
+        app: telegraf
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: telegraf
+      containers:
+        - name: telegraf
+          image: docker.io/telegraf:1.13.4
+          ports:
+            - containerPort: 8086
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/telegraf
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: telegraf
+  namespace: jitsi
+data:
+  telegraf.conf: |
+    [[outputs.influxdb]]
+    urls = ["http://influxdb:8086"]
+    database = "jitsi"
+    [[inputs.http]]
+    urls = [
+      "http://virtual.chaosdorf.space:8080/colibri/stats"
+    ]
+    data_format = "json"
