@@ -70,7 +70,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /data/jitsi
+    path: /data/jitsi/influxdb
   nodeAffinity:
     required:
       nodeSelectorTerms:
