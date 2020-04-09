@@ -55,6 +55,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
     kubernetes.io/tls-acme: "true"
     traefik.ingress.kubernetes.io/ssl-redirect: "true"
+    traefik.ingress.kubernetes.io/custom-response-headers: "Access-Control-Allow-Origin: https://chaosdorf.de"
 spec:
   tls:
     - hosts:
