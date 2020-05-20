@@ -67,15 +67,3 @@ data:
       "http://jitsi.freifunk-duesseldorf.de:9100/metrics"
     ]
 
-    [[inputs.http]]
-    data_format = "json"
-    name_override = "staging.jitsi.freifunk-duesseldorf.de"
-    urls = [
-      "http://staging.jitsi.freifunk-duesseldorf.de:8080/colibri/stats"
-    ]
-    [[inputs.prometheus]]
-    metric_version = 2
-    name_override = "staging.jitsi.freifunk-duesseldorf.de"
-    urls = [
-      "http://staging.jitsi.freifunk-duesseldorf.de:9100/metrics"
-    ]
