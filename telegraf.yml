@@ -67,3 +67,9 @@ data:
       "http://jitsi.freifunk-duesseldorf.de:9100/metrics"
     ]
 
+    [[inputs.prometheus]]
+    metric_version = 2
+    name_override = "stun.freifunk-duesseldorf.de"
+    urls = [
+      "http://stun.freifunk-duesseldorf.de:9100/metrics"
+    ]
