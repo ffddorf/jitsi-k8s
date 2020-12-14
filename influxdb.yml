@@ -24,7 +24,7 @@ spec:
             - containerPort: 8086
           resources:
             limits:
-              memory: "512Mi"
+              memory: "1Gi"
               cpu: "500m"
           volumeMounts:
             - name: influxdb
