@@ -80,6 +80,7 @@ spec:
   resources:
     requests:
       storage: 3Gi
+  volumeName: grafana
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -92,7 +93,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
+  storageClassName: local-path
   local:
     path: /data/jitsi/grafana
   nodeAffinity:

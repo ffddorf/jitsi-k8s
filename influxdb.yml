@@ -56,6 +56,7 @@ spec:
   resources:
     requests:
       storage: 3Gi
+  volumeName: influxdb
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -68,7 +69,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
+  storageClassName: local-path
   local:
     path: /data/jitsi/influxdb
   nodeAffinity:
