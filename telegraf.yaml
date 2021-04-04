@@ -19,7 +19,7 @@ spec:
             name: telegraf
       containers:
         - name: telegraf
-          image: docker.io/telegraf:1.18.0
+          image: docker.io/telegraf:1.18
           ports:
             - containerPort: 8086
           resources:
