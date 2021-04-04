@@ -19,7 +19,8 @@ spec:
             claimName: influxdb
       containers:
         - name: influxdb
-          image: docker.io/influxdb:1.8.4
+          image: docker.io/influxdb:1.8
+          imagePullPolicy: Always
           ports:
             - containerPort: 8086
           resources:

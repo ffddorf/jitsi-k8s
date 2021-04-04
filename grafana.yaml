@@ -19,7 +19,8 @@ spec:
             claimName: grafana
       containers:
         - name: grafana
-          image: docker.io/grafana/grafana:7.5.1
+          image: docker.io/grafana/grafana:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           resources:
