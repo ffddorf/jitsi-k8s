@@ -7,5 +7,5 @@ metadata:
 spec:
   interval: 30s
   ref:
-    branch: deploy-with-flux
+    branch: main
   url: https://github.com/ffddorf/jitsi-k8s
