@@ -1,0 +1,30 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: grafana
+  namespace: flux-system
+spec:
+  image: docker.io/grafana/grafana
+  interval: 5m0s
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: influxdb
+  namespace: flux-system
+spec:
+  image: docker.io/influxdb
+  interval: 5m0s
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: telegraf
+  namespace: flux-system
+spec:
+  image: docker.io/telegraf
+  interval: 5m0s
+
