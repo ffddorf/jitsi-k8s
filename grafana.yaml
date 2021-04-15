@@ -4,6 +4,9 @@ kind: Deployment
 metadata:
   name: grafana
   namespace: jitsi
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: semver:~7.5
 spec:
   selector:
     matchLabels:
@@ -19,7 +22,7 @@ spec:
             claimName: grafana
       containers:
         - name: grafana
-          image: docker.io/grafana/grafana:latest
+          image: docker.io/grafana/grafana:7.5.0
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
