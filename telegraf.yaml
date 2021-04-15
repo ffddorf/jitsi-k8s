@@ -4,6 +4,9 @@ kind: Deployment
 metadata:
   name: telegraf
   namespace: jitsi
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: semver:~1.18
 spec:
   selector:
     matchLabels:
