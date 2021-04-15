@@ -4,6 +4,9 @@ kind: Deployment
 metadata:
   name: influxdb
   namespace: jitsi
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: semver:~1.8
 spec:
   selector:
     matchLabels:
