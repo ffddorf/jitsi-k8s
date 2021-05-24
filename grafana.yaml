@@ -46,6 +46,21 @@ spec:
     - port: 3000
       targetPort: 3000
 ---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: security
+  namespace: jitsi
+spec:
+  headers:
+    stsSeconds: 63072000
+    accessControlAllowOriginList:
+      - "https://chaosdorf.de"
+    accessControlAllowMethods:
+      - "GET"
+    accessControlMaxAge: 100
+    addVaryHeader: true
+---
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
@@ -55,8 +70,9 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: traefik
     kubernetes.io/tls-acme: "true"
-    traefik.ingress.kubernetes.io/ssl-redirect: "true"
-    traefik.ingress.kubernetes.io/custom-response-headers: "Access-Control-Allow-Origin: https://chaosdorf.de"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: jitsi-security@kubernetescrd
 spec:
   tls:
     - hosts:
